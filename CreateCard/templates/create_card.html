@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link my_nav_text btn-social" href="{% url 'create-card:view' %}">VIEW CARDS</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .create-card-btn{
+        background-color: #F63837 !important; 
+        color: white !important;
+        border-color: beige;
+    }
+    .mod-header{
+        text-align: center;
+        background-color: #F63837;
+        color: white;
+        opacity: .79;
+        font-size: 23px;
+    }
+    .mod-card-btn{
+        background-color: #F63837 !important;
+        color: white;
+        border-color: beige;
+    }
+    .my-jumbo{
+        margin-top: 4rem;
+        background-color: blanchedalmond;;
+    }
+    .text{
+        text-align: center;
+    }
+
+</style>
+
+
+
+<!-- Card -->
+<a class="btn btn-primary create-card-btn" data-toggle="modal" data-target="#exampleModal" role="button">CREATE CARD</a>
+
+<!-- Django messages -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div 
+    {% if message.tags == "success" %} class="alert alert-success"
+    {% elif message.tags == "error" %} class="alert alert-danger"
+    {% endif %}>
+        <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabaccount="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header mod-header">
+                <h5 class="modal-title" id="exampleModalLabel">CREATE CARD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body">
+                <form method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <label> Full Name </label>
+                            <input type="username" class="form-control" name="name"><br>
+                        <label> Date and Time</label>
+                            <input type="datetime-local" class="form-control" name="time"><br>
+                        <label for="todo">Type to do</label>
+                            <textarea class="form-control" id="todo" rows="3" name="to_do"></textarea>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button type="button" class="btn btn-secondary mod-card-btn" data-dismiss="modal">CLOSE</button>
+                    <input type="submit" class="btn btn-primary mod-card-btn" value="CREATE"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

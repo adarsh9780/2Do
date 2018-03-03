@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+
+{% block nav %}
+
+    <li class="nav-item">
+      <a class="nav-link my_nav_text btn-social" href="#">LOGIN</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="card" style="height: 32rem; width: 25rem; overflow-y: scroll;">
+                <div class="card-header" style="background-color: #F63837 !important; color: white">SIGN UP</div>
+                <div class="card-body">
+                    <form method="POST" action=''>{% csrf_token %}
+                        {{ signup_form|crispy }}
+                        <input type="submit" class="btn btn-primary" value="SIGN UP" style="background-color: #F63837 !important; border-color: beige;"/>
+                    </form>
+                </div>
+            </div>
+            <div class="card ml-3" style="height: 32rem; width: 43rem;">
+                <img class="card-img-top" src="{% static 'create_card/img/Demo.jpg' %}" alt="Card image">
+                <div class="card-body">
+                    <strong>An unique way to manage your daily activities. Get a SMS reminder for all of your
+                    activities. Sign Up and Enjoy</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
