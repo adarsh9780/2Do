@@ -14,17 +14,17 @@ import os
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4@_rz2!t@z1jvzsw84+42xxr1v2yz7qhop$khg($i@8s5@73yd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 ALLOWED_HOSTS = ['10.10.131.76', '127.0.0.1']
 
@@ -138,13 +138,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'Static_Root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "Media_Root")
 
-# TWILIO_ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']
-# TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
-# TWILIO_CALLER_ID = os.environ['TWILIO_CALLER_ID']
-
-TWILIO_ACCOUNT_SID='ACf444eea774e6a2e4e0b81cd4b8cb3a8d'
-TWILIO_AUTH_TOKEN='4dd33e0cf293066f9df8d7d385d454f7'
-TWILIO_CALLER_ID='+18042943446'
+TWILIO_ACCOUNT_SID = os.environ['TWILIO_ACCOUNT_SID']
+TWILIO_AUTH_TOKEN = os.environ['TWILIO_AUTH_TOKEN']
+TWILIO_CALLER_ID = os.environ['TWILIO_CALLER_ID']
 
 #Crispy form
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
