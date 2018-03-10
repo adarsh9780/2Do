@@ -4,7 +4,7 @@ from .common import *
 SECRET_KEY = '4@_rz2!t@z1jvzsw84+42xxr1v2yz7qhop$khg($i@8s5@73yd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ghoststories.pythonanywhere.com', '127.0.0.1']
 
