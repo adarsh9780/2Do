@@ -13,9 +13,8 @@ from twilio.rest import Client
 # Create your views here.
 
 class Index(View):
-    def create_and_send_msg(self, to_do):
+    def create_and_send_msg(self, to_do, number):
         # Find these values at https://twilio.com/user/account
-        # print("I am a dummy function")
         account_sid = settings.TWILIO_ACCOUNT_SID
         # print(settings.TWILIO_ACCOUNT_SID)
         auth_token = settings.TWILIO_AUTH_TOKEN
@@ -25,7 +24,7 @@ class Index(View):
         client = Client(account_sid, auth_token)
 
         client.api.account.messages.create(
-            to="+918427084473",
+            to=number,
             from_=settings.TWILIO_CALLER_ID,
             body=message)
 
@@ -41,6 +40,9 @@ class Index(View):
         to_do = request.POST.get("to_do")
         time = request.POST.get("time")
         name = request.POST.get("name")
+        phone_number = request.POST.get("phone_number")
+
+        number = "+91" + phone_number
 
         test_date = time[:10] # extract date from string
         test_time = time[11:] # extract time from string
@@ -59,23 +61,22 @@ class Index(View):
             messages.error(request, "You can't create cards with date in past.")
 
         elif test_date.date() == now.date():
-            
+
             if test_time.time() < now.time():
                 messages.error(request, "You must provide time greater than current time.")
-            
+
             else:
-                a = TDM(name=name, time=time, to_do=to_do)
+                a = TDM(name=name, time=time, to_do=to_do, phone_number=number)
                 a.save()
                 messages.success(request, "Card is created successfully")
-                print("delay: ", delay)
-                Timer(delay, self.create_and_send_msg, [to_do,]).start()
+                # print("delay: ", delay)
+                Timer(delay, self.create_and_send_msg, [to_do, number]).start()
 
         else:
-            a = TDM(name=name, time=time, to_do=to_do)
+            a = TDM(name=name, time=time, to_do=to_do, phone_number=number)
             a.save()
             messages.success(request, "Card is created successfully")
-            # print(delay)
-            # Timer(delay, self.create_and_send_msg, kwargs={'to_do':to_do}).start()
+            Timer(delay, self.create_and_send_msg, [to_do, number]).start()
 
         return render(request, 'create_card.html', {})
 

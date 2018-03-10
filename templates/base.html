@@ -46,13 +46,9 @@
                     <li class="nav-item active">
                     <a class="nav-link my_nav_text btn-social" href="{% url 'create-card:index' %}">HOME<span class="sr-only">(current)</span></a>
                     </li>
-                    {% block nav%}
-                    {% endblock %}
-                </ul>
-
-                <ul class="navbar-nav">
-                    {% block right-nav %}
-                    {% endblock %}
+                    <li class="nav-item">
+                        <a class="nav-link my_nav_text btn-social" href="{% url 'create-card:view' %}">VIEW CARDS</a>
+                    </li>
                 </ul>
             </div>
         </div>
