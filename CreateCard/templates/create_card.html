@@ -10,7 +10,7 @@
         background-color: #F63837 !important;
         color: white !important;
         border-color: beige;
-        margin-left: 35rem;
+        margin-left: 13rem;
     }
     .mod-header{
         text-align: center;
@@ -37,7 +37,16 @@
 
 
 <!-- Card -->
-<a class="btn btn-primary create-card-btn" data-toggle="modal" data-target="#exampleModal" role="button">CREATE CARD</a>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <a class="btn btn-primary create-card-btn" data-toggle="modal" data-target="#exampleModal"
+    role="button">CREATE CARD</a>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+
+
 
 <!-- Django messages -->
 {% if messages %}
