@@ -21,7 +21,7 @@ PyJWT==1.5.3
 PySocks==1.6.8
 pytz==2018.3
 qrcode==4.0.4
-requests==2.18.4
+requests==2.20.0
 simplegeneric==0.8.1
 six==1.11.0
 traitlets==4.3.2
