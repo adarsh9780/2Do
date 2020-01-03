@@ -2,7 +2,7 @@ Babel==2.5.3
 certifi==2018.1.18
 chardet==3.0.4
 decorator==4.2.1
-Django==1.11
+Django==1.11.23
 django-crispy-forms==1.7.0
 django-formtools==2.1
 idna==2.6
@@ -13,7 +13,7 @@ jedi==0.11.1
 parso==0.1.1
 pexpect==4.4.0
 pickleshare==0.7.4
-Pillow==5.0.0
+Pillow==6.2.0
 prompt-toolkit==1.0.15
 ptyprocess==0.5.2
 Pygments==2.2.0
@@ -21,10 +21,10 @@ PyJWT==1.5.3
 PySocks==1.6.8
 pytz==2018.3
 qrcode==4.0.4
-requests==2.18.4
+requests==2.20.0
 simplegeneric==0.8.1
 six==1.11.0
 traitlets==4.3.2
 twilio==6.10.3
-urllib3==1.22
+urllib3==1.24.2
 wcwidth==0.1.7
