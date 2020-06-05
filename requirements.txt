@@ -2,7 +2,7 @@ Babel==2.5.3
 certifi==2018.1.18
 chardet==3.0.4
 decorator==4.2.1
-Django==1.11.23
+Django==1.11.29
 django-crispy-forms==1.7.0
 django-formtools==2.1
 idna==2.6
